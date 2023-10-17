@@ -4,9 +4,9 @@ namespace Database\Factories;
 
 use App\Domain\Customer\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * @extends Factory<User>
