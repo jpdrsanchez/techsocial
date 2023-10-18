@@ -4,8 +4,6 @@ use App\Domain\Customer\Data\CreateCustomerData;
 use Illuminate\Validation\ValidationException;
 use Spatie\LaravelData\Data;
 
-uses(Tests\TestCase::class);
-
 it('should be able to create a valid customer creation data transfer object', function () {
     $data = CreateCustomerData::validateAndCreate([
         'first_name' => fake()->firstName(),
@@ -14,6 +12,7 @@ it('should be able to create a valid customer creation data transfer object', fu
         'email' => fake()->safeEmail(),
         'phone_number' => fake()->numerify('#############'),
         'birth_date' => fake()->date(),
+        'password' => 'Dummy@1235'
     ]);
     expect($data)->toBeInstanceOf(Data::class);
 });
@@ -26,8 +25,9 @@ it('should throwing an exception when the data is invalid', function () {
         'email' => '',
         'phone_number' => '',
         'birth_date' => fake()->date('d/m/Y'),
+        'password' => '',
     ]))->toThrow(
         ValidationException::class,
-        'The first name field is required. (and 5 more errors)'
+        'The first name field is required. (and 6 more errors)'
     );
 });
