@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace App\Infra\Providers;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
