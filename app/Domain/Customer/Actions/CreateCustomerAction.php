@@ -6,9 +6,11 @@ use App\Domain\Customer\Data\CreateCustomerData;
 use App\Domain\Customer\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class CreateCustomerAction {
-    public function execute( CreateCustomerData $data ): User {
-		$user = new User;
+class CreateCustomerAction
+{
+    public function execute(CreateCustomerData $data): User
+    {
+        $user = new User;
 
         $user->first_name = $data->first_name;
         $user->last_name = $data->last_name;
@@ -21,5 +23,5 @@ class CreateCustomerAction {
         $user->save();
 
         return $user;
-	}
+    }
 }

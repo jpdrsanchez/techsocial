@@ -12,7 +12,7 @@ it('should be able to create a valid customer creation data transfer object', fu
         'email' => fake()->safeEmail(),
         'phone_number' => fake()->numerify('#############'),
         'birth_date' => fake()->date(),
-        'password' => 'Dummy@1235'
+        'password' => 'Dummy@1235',
     ]);
     expect($data)->toBeInstanceOf(Data::class);
 });

@@ -16,8 +16,9 @@ use Spatie\LaravelData\Casts\DateTimeInterfaceCast;
 use Spatie\LaravelData\Data;
 use Spatie\LaravelData\Optional;
 
-class UpdateCustomerData extends Data {
-	public function __construct(
+class UpdateCustomerData extends Data
+{
+    public function __construct(
         #[Sometimes, Min(3)]
         public string|Optional $first_name,
         #[Sometimes, Min(2)]
@@ -32,6 +33,6 @@ class UpdateCustomerData extends Data {
         public CarbonImmutable|Optional $birth_date,
         #[Sometimes, Password(min: 8, letters: true, mixedCase: true, numbers: true, symbols: true)]
         public string|Optional $password,
-	) {
-	}
+    ) {
+    }
 }

@@ -14,14 +14,14 @@ beforeEach(function () {
         'email' => fake()->safeEmail(),
         'phone_number' => fake()->numerify('#############'),
         'birth_date' => fake()->date(),
-        'password' => 'Dummy@1235'
+        'password' => 'Dummy@1235',
     ]);
 });
 
 it('should be able to create a new valid customer', function () {
     $customer = $this->action->execute($this->payload);
     expect($customer)
-        ->toBeInstanceOf( User::class)
+        ->toBeInstanceOf(User::class)
         ->and(Hash::check($this->payload->password, $customer->password))
         ->toBeTrue();
 });
