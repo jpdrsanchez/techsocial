@@ -7,7 +7,7 @@ use App\Domain\Customer\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
-class ApiAuthenticateCustomer {
+class ApiAuthenticateCustomerAction {
     public function execute (AuthenticateCustomerData $data): array {
         $user = User::where('email', $data->email)->first();
 

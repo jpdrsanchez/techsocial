@@ -7,7 +7,7 @@ use App\Domain\Customer\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
-class ClientAuthenticateCustomer {
+class ClientAuthenticateCustomerAction {
     public function execute (AuthenticateCustomerData $data): User|RedirectResponse {
         if (Auth::attempt($data->toArray())) {
             request()->session()->regenerate();
