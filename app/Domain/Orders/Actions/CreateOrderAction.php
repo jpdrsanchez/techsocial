@@ -6,8 +6,10 @@ use App\Domain\Customer\Models\User;
 use App\Domain\Orders\Data\CreateOrderData;
 use App\Domain\Orders\Models\Order;
 
-class CreateOrderAction {
-    public function execute(User $customer, CreateOrderData $data): false|Order {
+class CreateOrderAction
+{
+    public function execute(User $customer, CreateOrderData $data): false|Order
+    {
         $order = new Order;
 
         $order->description = $data->description;

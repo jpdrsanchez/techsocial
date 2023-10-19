@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Order extends Model {
+class Order extends Model
+{
     use HasUuids;
 
     /**
@@ -15,11 +16,11 @@ class Order extends Model {
      *
      * @var array<int, string>
      */
-	protected $fillable = [
-		'description',
-		'quantity',
-		'price',
-	];
+    protected $fillable = [
+        'description',
+        'quantity',
+        'price',
+    ];
 
     /**
      * Get the customer that owns the order.
