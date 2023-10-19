@@ -2,8 +2,10 @@
 
 namespace App\Domain\Customer\Models;
 
+use App\Domain\Orders\Models\Order;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -46,4 +48,12 @@ class User extends Authenticatable
         'password' => 'hashed',
         'birth_date' => 'date',
     ];
+
+    /**
+     * Get the orders for the customer.
+     */
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }
