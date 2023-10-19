@@ -155,7 +155,7 @@ return [
     |
     */
 
-    'providers' => ServiceProvider::defaultProviders()->merge([
+    'providers' => ServiceProvider::defaultProviders()->merge( [
         /*
          * Package Service Providers...
          */
@@ -168,6 +168,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         \App\Infra\Providers\EventServiceProvider::class,
         \App\Infra\Providers\RouteServiceProvider::class,
+        App\Infra\Providers\ViewServiceProvider::class,
     ])->toArray(),
 
     /*
