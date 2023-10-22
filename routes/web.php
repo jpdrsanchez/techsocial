@@ -20,14 +20,14 @@ Route::redirect('/home', '/dashboard');
 Route::redirect('/dashboard', '/dashboard/customers');
 
 Route::name('web.')->group(function () {
-    Route::controller( AuthController::class)
-         ->group(function () {
-             Route::get('/login', 'login')->name('login')->middleware('guest');
-             Route::post('/login', 'authenticate')->name('authenticate');
-             Route::get('/register', 'register')->name('register')->middleware('guest');
-             Route::post('/register', 'create')->name('create');
-             Route::post('/logout', 'logout')->name('logout');
-         });
+    Route::controller(AuthController::class)
+        ->group(function () {
+            Route::get('/login', 'login')->name('login')->middleware('guest');
+            Route::post('/login', 'authenticate')->name('authenticate');
+            Route::get('/register', 'register')->name('register')->middleware('guest');
+            Route::post('/register', 'create')->name('create');
+            Route::post('/logout', 'logout')->name('logout');
+        });
 
     Route::middleware('auth')->group(function () {
         Route::prefix('/dashboard')->group(function () {

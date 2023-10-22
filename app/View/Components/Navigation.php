@@ -11,8 +11,6 @@ class Navigation extends Component
 {
     /**
      * The navigation menu items.
-     *
-     * @var Collection
      */
     protected Collection $items;
 
@@ -25,13 +23,13 @@ class Navigation extends Component
             (object) [
                 'title' => 'Users',
                 'icon' => 'user-group.svg',
-                'links' => route('web.dashboard.customers.index')
+                'links' => route('web.dashboard.customers.index'),
             ],
             (object) [
                 'title' => 'Orders',
                 'icon' => 'document-chart-bar.svg',
-                'links' => ''
-            ]
+                'links' => '',
+            ],
         ]);
     }
 
