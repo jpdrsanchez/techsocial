@@ -12,7 +12,9 @@ class UpdateCustomerAction
         $data = collect($data->all());
 
         $data->each(function (mixed $value, string $key) use ($user) {
-            $user->{$key} = $value;
+            if ($user->{$key} !== $value) {
+                $user->{$key} = $value;
+            }
         });
 
         $user->save();

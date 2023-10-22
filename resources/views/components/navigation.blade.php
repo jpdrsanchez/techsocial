@@ -27,4 +27,20 @@
             </li>
         @endforeach
     </ul>
+    <hr class="border-gray-700 my-5" />
+    <form action="{{ route('web.logout') }}" method="post">
+        @method('POST')
+        @csrf
+        <buttom type="submit" class="flex items-center gap-2 p-1 rounded-md hover:bg-gray-800 group cursor-pointer border-none appearance-none">
+            <span class="flex items-center justify-center h-8 w-8">
+                <img
+                    src="{{ Vite::asset('resources/images/icons/arrow-left-on-rectangle.svg') }}"
+                    alt=""
+                    aria-hidden="true"
+                    class="w-5 h-5"
+                />
+            </span>
+            <span class="text-gray-400 text-base group-hover:text-white">Sair</span>
+        </buttom>
+    </form>
 </nav>

@@ -9,6 +9,6 @@ class ListCustomersAction
 {
     public function execute(): Collection
     {
-        return User::all();
+        return User::with('orders')->get();
     }
 }
