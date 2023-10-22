@@ -21,19 +21,13 @@ use Spatie\LaravelData\Optional;
 class UpdateCustomerData extends Data
 {
     public function __construct(
-        #[Sometimes, Min(3)]
         public string|Optional $first_name,
-        #[Sometimes, Min(2)]
         public string|Optional $last_name,
-        #[Sometimes, Digits(11), Numeric]
         public string|Optional $document,
-        #[Sometimes, Email(Email::RfcValidation)]
         public string|Optional $email,
-        #[Sometimes, DigitsBetween(12, 13), Numeric]
         public string|Optional $phone_number,
-        #[Sometimes, WithCast(DateTimeInterfaceCast::class, format: 'Y-m-d'), DateFormat('Y-m-d')]
+        #[WithCast(DateTimeInterfaceCast::class, format: 'Y-m-d')]
         public CarbonImmutable|Optional $birth_date,
-        #[Nullable, Password(min: 8, letters: true, mixedCase: true, numbers: true, symbols: true)]
         public null|string|Optional $password,
     ) {
     }

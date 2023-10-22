@@ -2,6 +2,8 @@
 
 namespace App\App\Dashboard\Controllers;
 
+use App\App\Dashboard\Requests\StoreCustomerRequest;
+use App\App\Dashboard\Requests\UpdateCustomerRequest;
 use App\Domain\Customer\Actions\CreateCustomerAction;
 use App\Domain\Customer\Actions\DeleteCustomerAction;
 use App\Domain\Customer\Actions\ListCustomersAction;
@@ -31,8 +33,8 @@ class CustomersController {
         return view('customers.create');
 	}
 
-	public function store( CreateCustomerData $request ): RedirectResponse {
-        $this->createCustomerAction->execute($request);
+	public function store( StoreCustomerRequest $request ): RedirectResponse {
+        $this->createCustomerAction->execute(CreateCustomerData::from($request->validated()));
 
         return redirect()
             ->route('web.dashboard.customers.index')
@@ -43,8 +45,8 @@ class CustomersController {
         return view('customers.edit', ['customer' => $customer]);
 	}
 
-	public function update( UpdateCustomerData $request, User $customer ): RedirectResponse {
-        $this->updateCustomerAction->execute($customer, $request);
+	public function update( UpdateCustomerRequest $request, User $customer ): RedirectResponse {
+        $this->updateCustomerAction->execute($customer, UpdateCustomerData::from($request->validated()));
 
         return redirect()
             ->route('web.dashboard.customers.index')

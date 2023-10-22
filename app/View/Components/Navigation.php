@@ -30,7 +30,7 @@ class Navigation extends Component
             (object) [
                 'title' => 'Orders',
                 'icon' => 'document-chart-bar.svg',
-                'links' => route('web.dashbo')
+                'links' => ''
             ]
         ]);
     }
