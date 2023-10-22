@@ -1,9 +1,9 @@
 <?php
 
-namespace App\App\Dashboard\Controllers;
+namespace App\App\Dashboard\Customer\Controllers;
 
-use App\App\Dashboard\Requests\AuthenticateCustomerRequest;
-use App\App\Dashboard\Requests\StoreCustomerRequest;
+use App\App\Dashboard\Customer\Requests\AuthenticateCustomerRequest;
+use App\App\Dashboard\Customer\Requests\StoreCustomerRequest;
 use App\Domain\Customer\Actions\ClientAuthenticateCustomerAction;
 use App\Domain\Customer\Actions\CreateCustomerAction;
 use App\Domain\Customer\Data\AuthenticateCustomerData;

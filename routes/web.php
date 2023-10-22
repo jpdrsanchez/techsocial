@@ -1,7 +1,7 @@
 <?php
 
-use App\App\Dashboard\Controllers\AuthController;
-use App\App\Dashboard\Controllers\CustomersController;
+use App\App\Dashboard\Customer\Controllers\AuthController;
+use App\App\Dashboard\Customer\Controllers\CustomersController;
 use Illuminate\Support\Facades\Route;
 
 /*

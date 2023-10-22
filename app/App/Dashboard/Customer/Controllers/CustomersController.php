@@ -1,9 +1,9 @@
 <?php
 
-namespace App\App\Dashboard\Controllers;
+namespace App\App\Dashboard\Customer\Controllers;
 
-use App\App\Dashboard\Requests\StoreCustomerRequest;
-use App\App\Dashboard\Requests\UpdateCustomerRequest;
+use App\App\Dashboard\Customer\Requests\StoreCustomerRequest;
+use App\App\Dashboard\Customer\Requests\UpdateCustomerRequest;
 use App\Domain\Customer\Actions\CreateCustomerAction;
 use App\Domain\Customer\Actions\DeleteCustomerAction;
 use App\Domain\Customer\Actions\ListCustomersAction;
