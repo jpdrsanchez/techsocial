@@ -17,9 +17,9 @@ class DatabaseSeeder extends Seeder
         User::factory(30)->has(Order::factory()->count(3))->create();
 
         User::factory()->has(Order::factory()->count(10))->create([
-             'first_name' => 'Tech',
-             'last_name' => 'Social',
-             'email' => 'admin@techsocial.test',
+            'first_name' => 'Tech',
+            'last_name' => 'Social',
+            'email' => 'admin@techsocial.test',
         ]);
     }
 }

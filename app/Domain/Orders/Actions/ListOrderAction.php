@@ -17,7 +17,7 @@ class ListOrderAction
 
             $orders->whereHas(
                 'customer',
-                fn ( Builder $query) => $query->where('id', $customer)
+                fn (Builder $query) => $query->where('id', $customer)
             );
         });
 

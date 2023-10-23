@@ -3,8 +3,6 @@
 namespace App\Domain\Orders\Data;
 
 use Illuminate\Support\Optional;
-use Spatie\LaravelData\Attributes\Validation\IntegerType;
-use Spatie\LaravelData\Attributes\Validation\Sometimes;
 use Spatie\LaravelData\Data;
 
 class UpdateOrderData extends Data

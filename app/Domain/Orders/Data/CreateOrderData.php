@@ -2,8 +2,6 @@
 
 namespace App\Domain\Orders\Data;
 
-use Spatie\LaravelData\Attributes\Validation\IntegerType;
-use Spatie\LaravelData\Attributes\Validation\Required;
 use Spatie\LaravelData\Data;
 
 class CreateOrderData extends Data

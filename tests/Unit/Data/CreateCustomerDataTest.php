@@ -1,7 +1,6 @@
 <?php
 
 use App\Domain\Customer\Data\CreateCustomerData;
-use Illuminate\Validation\ValidationException;
 use Spatie\LaravelData\Data;
 
 it('should be able to create a valid customer creation data transfer object', function () {
