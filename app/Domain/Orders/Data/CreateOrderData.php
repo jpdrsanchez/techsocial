@@ -9,11 +9,8 @@ use Spatie\LaravelData\Data;
 class CreateOrderData extends Data
 {
     public function __construct(
-        #[Required]
         public string $description,
-        #[Required, IntegerType]
         public int $quantity,
-        #[Required, IntegerType]
         public int $price
     ) {
     }

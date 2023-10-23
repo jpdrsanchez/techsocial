@@ -2,6 +2,7 @@
 
 use App\App\Dashboard\Customer\Controllers\AuthController;
 use App\App\Dashboard\Customer\Controllers\CustomersController;
+use App\App\Dashboard\Orders\Controllers\OrdersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,7 @@ Route::name('web.')->group(function () {
         Route::prefix('/dashboard')->group(function () {
             Route::name('dashboard.')->group(function () {
                 Route::resource('customers', CustomersController::class)->except('show');
+                Route::resource('orders', OrdersController::class)->except('show');
             });
         });
     });

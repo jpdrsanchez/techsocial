@@ -13,7 +13,7 @@
     <ul class="grid gap-2">
         @foreach($items as $item)
             <li>
-                <a href="#" class="flex items-center gap-2 p-1 rounded-md hover:bg-gray-800 group">
+                <a href="{{ $item->link }}" class="flex items-center gap-2 p-1 rounded-md hover:bg-gray-800 group">
                     <span class="flex items-center justify-center h-8 w-8">
                         <img
                             src="{{ Vite::asset('resources/images/icons/' . $item->icon) }}"

@@ -23,12 +23,12 @@ class Navigation extends Component
             (object) [
                 'title' => 'Users',
                 'icon' => 'user-group.svg',
-                'links' => route('web.dashboard.customers.index'),
+                'link' => route('web.dashboard.customers.index'),
             ],
             (object) [
                 'title' => 'Orders',
                 'icon' => 'document-chart-bar.svg',
-                'links' => '',
+                'link' => route('web.dashboard.orders.index'),
             ],
         ]);
     }

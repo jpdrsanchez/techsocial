@@ -3,12 +3,12 @@
 namespace App\Domain\Customer\Actions;
 
 use App\Domain\Customer\Models\User;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\Paginator;
 
 class ListCustomersAction
 {
-    public function execute(): Collection
+    public function execute(): Paginator
     {
-        return User::with('orders')->get();
+        return User::with('orders')->simplePaginate(15);
     }
 }

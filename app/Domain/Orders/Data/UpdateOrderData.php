@@ -10,11 +10,8 @@ use Spatie\LaravelData\Data;
 class UpdateOrderData extends Data
 {
     public function __construct(
-        #[Sometimes]
         public string|Optional $description,
-        #[Sometimes, IntegerType]
         public int|Optional $quantity,
-        #[Sometimes, IntegerType]
         public int|Optional $price
     ) {
     }
