@@ -1,66 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Techsocial CRUD
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Um CRUD simples que consiste na criação e exclusão de usuários e pedidos:
 
-## About Laravel
+## Setup
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+A aplicação foi criada em laravel utilizando o pacote **Laravel Sail** tendo assim seu ambiente de desenvolvimento totalmente **Dockerizado**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+O Setup inicial pode ser realizado somente por um comando por meio de uma **Makefile** que irá buildar nossos 
+containers, rodar nossas migrations e alimentar nossas tabelars por meio dos seeders.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Basta rodar o comando abaixo em seu terminal
 
-## Learning Laravel
+```
+make build
+```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Se preferir o processo pode ser feito manualmente rodando os seguintes comandos em sequência:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```
+cp .env.example .env
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+composer install
 
-## Laravel Sponsors
+./vendor/bin/sail up -d
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+./vendor/bin/sail yarn
 
-### Premium Partners
+./vendor/bin/sail yarn build
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+./vendor/bin/sail artisan migrate:refresh --seed
+```
 
-## Contributing
+Após o setup, a base de dados será preenchida com dados aleatórios, porém é criado um usuário padrão de acesso com as
+seguintes credênciais:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```
+Usuário: admin@techsocial.test
+Senha: password
+```
 
-## Code of Conduct
+E você pode acessar o site através do endereço: [techsocial.test](techsocial.test)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Ao entrar no sistema você terá um painel com duas páginas, sendo uma de listagem dos usuários (customers) e outra de
+listagem dos pedidos, aonde você terá total gerenciamento de ambos (CRUD), seguindo as seguintes regras:
 
-## Security Vulnerabilities
+- Um usuário pode gerenciar todas as contas, porém não pode excluir sua própria conta
+- Na tabela de usuários haverão 3 botões na última coluna da tabela, sendo um para editar, um para excluir, e um para
+- visualizar somente os pedidos feitos por aquele usuário
+- A tabela de pedidos segue a mesma lógica, exceto pelo fato que um usuário só pode excluir seus próprios pedidos
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Testes
 
-## License
+Para rodar os testes basta digitar o seguinte comando:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```
+./vendor/bin/sail artisan test --testsuite=Unit --stop-on-failure
+```
+
+## Lint
+
+O projeto usa o pacote **Laravel Pint** construído em cima do PHPCS Fixer para padronização de código, para formatar
+os arquivos, basta digitar
+
+```angular2html
+./vendor/bin/sail pint
+```
