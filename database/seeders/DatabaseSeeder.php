@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Domain\Customer\Models\User;
+use App\Domain\Orders\Models\Order;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::factory(30)->has(Order::factory()->count(3))->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory()->has(Order::factory()->count(10))->create([
+             'first_name' => 'Tech',
+             'last_name' => 'Social',
+             'email' => 'admin@techsocial.test',
+        ]);
     }
 }
