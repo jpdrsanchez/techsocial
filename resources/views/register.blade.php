@@ -74,7 +74,7 @@
                 Phone Number
             </label>
             <input
-                placeholder="5511999999999"
+                placeholder="11999999999"
                 id="phone_number"
                 name="phone_number"
                 type="text"
