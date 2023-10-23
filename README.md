@@ -62,6 +62,20 @@ Para rodar os testes basta digitar o seguinte comando:
 O projeto usa o pacote **Laravel Pint** construído em cima do PHPCS Fixer para padronização de código, para formatar
 os arquivos, basta digitar
 
-```angular2html
+```
 ./vendor/bin/sail pint
 ```
+
+## Organização de Código
+
+Para uma melhor organização de código, separamos nossa aplicação em algumas camadas seguindo alguns principios de
+arquitetura limpa, e DDD.
+
+dentro da pasta ``app`` teremos 3 pastas que se diferem do padrão do Laravel:
+
+- ``Domain``: Pasta contendo nossos Models, DTO's e nossas Actions que contém toda lógica de CRUD, tirando essa responsábilidade do Controller, que passa agir somente como um orquestrador.
+- ``App``: Camada da nossa aplicação onde temos nossos FormRequests (Validators), Controllers e chamadas HTTP.
+- ``Infra``: Toda configuração do nosso app fica localizado nesta parte.
+
+Tendo em vista que essa não é uma estrutura 100% fiel aos conceitos de Clean Arch e DDD, procurei seguir o que o
+framework já nos oferece sem deixar uma organização muito complexa.
